@@ -66,17 +66,24 @@ class HangpersonApp < Sinatra::Base
       erb :show   
     end
     
-   
   end
   
   get '/win' do
     ### YOUR CODE HERE ###
-    erb :win 
+    if @game.str == @game.word and @game.wrong_guesses.length < 7
+      erb :win 
+    else 
+      redirect '/show'
+    end
   end
   
   get '/lose' do
     ### YOUR CODE HERE ###
-    erb :lose
+    if @game.wrong_guesses.length >= 7 
+      erb :lose
+    else 
+      redirect '/show'
+    end
   end
 
 end
