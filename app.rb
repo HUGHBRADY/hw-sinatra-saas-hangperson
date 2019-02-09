@@ -58,7 +58,15 @@ class HangpersonApp < Sinatra::Base
     ### YOUR CODE HERE ###
     @game.word_with_guesses
     
-    erb :show
+    if @game.str == @game.word and @game.wrong_guesses.length < 7
+      redirect '/win'
+    elsif @game.wrong_guesses.length >= 7
+      redirect '/lose'
+    else
+      erb :show   
+    end
+    
+   
   end
   
   get '/win' do
