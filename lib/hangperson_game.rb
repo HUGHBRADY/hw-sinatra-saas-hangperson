@@ -59,7 +59,6 @@ class HangpersonGame
       return :win
     elsif wrong_guesses.length >= 7
       return :lose
-     
     else 
       return :play
     end 
