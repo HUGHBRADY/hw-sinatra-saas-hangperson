@@ -19,7 +19,6 @@ class HangpersonGame
   def guess(g)
     
     if g =~ /[[:alpha:]]/
-    
       g.downcase!
       
       if @word.include? g and !@guesses.include? g
